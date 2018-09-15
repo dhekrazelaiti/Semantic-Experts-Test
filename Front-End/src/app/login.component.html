@@ -9,16 +9,30 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" name="username"  required>
+            <input matInput placeholder="Username" name="username" required (keyup) ="checkFormValidation($event)">
+            <span class="form-element-error" *ngIf="!isValidFormUsername" style="color: red">
+              Veuiller remplir le champ Username
+            </span>
             </mat-form-field>
           </td>
         </tr>
         <tr>
         <td><mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" type="password" name="password"  required>
+          <input matInput placeholder="Password" type="password" name="password"  required (keyup) ="checkFormValidation($event)">
+          <span class="form-element-error" *ngIf="!isValidFormPassword" style="color: red">
+            Veuiller remplir le champ Password
+          </span>
+          <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length <= 6" style="color: red">
+            Le mot de passe doit contenir au moin 6 characteres
+          </span>
+          <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length > 12" style="color: red">
+            Le mot de passe ne doit pas depasse les 12 characteres
+          </span>
         </mat-form-field></td>
       </tr></table>
-      <button type="submit" mat-raised-button color="primary">Login</button>
+      <button type="submit" [disabled]="!isValidFormUsername || !isValidFormPassword " mat-button mat-raised-button color="primary" (click)="openDialog()">Connexion</button>
+
+      <!--<button type="submit" mat-raised-button color="primary">Login</button>-->
     </form>
   </mat-card-content>
 </mat-card>
