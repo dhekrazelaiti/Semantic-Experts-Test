@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 
 
@@ -10,6 +10,8 @@ import { MatDialogRef } from '@angular/material';
 })
 export class DialogBodyComponent implements OnInit {
 
+  hasScrollUntilTheEnd = false;
+
   constructor(public dialogRef: MatDialogRef<DialogBodyComponent>) {}
 
   ngOnInit() {
@@ -17,5 +19,15 @@ export class DialogBodyComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
+
+  @HostListener('scroll', ['$event'])
+onScroll(event: any) {
+  console.log("=========> scrolling: ", event.target.offsetHeight, event.target.scrollTop);
+    // visible height + pixel scrolled >= total height
+    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+      console.log("=========> End");
+      this.hasScrollUntilTheEnd = true;
+    }
+}
 
 }
