@@ -19,6 +19,7 @@ export class LoginComponent {
    isValidFormPassword = false;
    usernameValue = '';
    passwordValue = '';
+   badLogin = false;
 
    constructor(private router: Router, private user: UserService, private dialog: MatDialog) {}
 
@@ -48,6 +49,7 @@ checkFormValidation(event) {
 }
 
 loginUser(e) {
+  this.badLogin = false;
   console.log('*******************', e);
   e.preventDefault();
 
@@ -57,9 +59,9 @@ loginUser(e) {
     // this.user.setUserLoggedIn();
      // this.user.setUsername('admin');
      // this.router.navigate(['popup']);
-     console.log('################### Good cnx param');
+     this.openDialog();
   } else {
-    console.log('################### bad login or password');
+    this.badLogin = true;
   }
 }
 openDialog() {

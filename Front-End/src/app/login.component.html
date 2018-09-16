@@ -4,6 +4,9 @@
   </mat-card-header>
   <mat-card-content>
     <form  (submit) = "loginUser($event)" class="example-form">
+      <div *ngIf="badLogin">
+        Nom d'utililisateur et/ou mot de passe incorrecte !
+      </div>
     <!-- <form  (ngSubmit)="sayHello()" class="example-form"> -->
       <table class="example-full-width" cellspacing="0">
         <tr>
@@ -31,7 +34,7 @@
         </mat-form-field></td>
       </tr></table>
       <button type="submit" [disabled]="!isValidFormUsername || !isValidFormPassword  || ((isValidFormPassword && passwordValue.length <= 6) ||
-       (isValidFormPassword && passwordValue.length > 12))" mat-button mat-raised-button color="primary" (click)="openDialog()">Connexion</button>
+       (isValidFormPassword && passwordValue.length > 12))" mat-button mat-raised-button color="primary" >Connexion</button>
       <!--<button type="submit" mat-raised-button color="primary">Login</button>-->
     </form>
   </mat-card-content>
