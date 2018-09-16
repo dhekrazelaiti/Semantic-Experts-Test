@@ -27,7 +27,7 @@ const route: Routes = [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    DialogBodyComponent
+    DialogBodyComponent,
   ],
   imports: [
     BrowserModule,

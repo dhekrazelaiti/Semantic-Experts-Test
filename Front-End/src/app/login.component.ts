@@ -7,6 +7,7 @@ import { DialogBodyComponent } from './dialog-body/dialog-body.component';
 
 
 
+
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'login',
@@ -16,6 +17,7 @@ export class LoginComponent {
 
    isValidFormUsername = false;
    isValidFormPassword = false;
+   usernameValue = '';
    passwordValue = '';
 
    constructor(private router: Router, private user: UserService, private dialog: MatDialog) {}
@@ -28,6 +30,7 @@ checkFormValidation(event) {
   const value = event.target.value;
 
   if (name === 'username') {
+    this.usernameValue = value;
     if (value !== '') {
       this.isValidFormUsername = true;
     } else {
@@ -47,18 +50,17 @@ checkFormValidation(event) {
 loginUser(e) {
   console.log('*******************', e);
   e.preventDefault();
-  const username = e.target.elements[0].value;
-  const password = e.target.elements[0].value;
 
-  console.log(username, password);
+  console.log(this.usernameValue, this.passwordValue);
 
-   if (username === 'admin' && password === 'admin') {
-     // this.user.setUserLoggedIn();
+   if (this.usernameValue === 'admin' && this.passwordValue === 'adminadmin') {
+    // this.user.setUserLoggedIn();
      // this.user.setUsername('admin');
-     this.router.navigate(['popup']);
-
-   }
-  console.log('###################@', username, password);
+     // this.router.navigate(['popup']);
+     console.log('################### Good cnx param');
+  } else {
+    console.log('################### bad login or password');
+  }
 }
 openDialog() {
   const dialogConfig = new MatDialogConfig();
@@ -66,3 +68,4 @@ openDialog() {
 }
 
 }
+
