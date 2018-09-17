@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Install Angular</h2>
+<h2 mat-dialog-title>Politiques et Conditions Générale </h2>
 
 
 
@@ -61,13 +61,17 @@
   the Router service to help you define navigation paths among views. The router provides
   sophisticated in-browser navigational capabilities.</p>
 </mat-dialog-content>
-<form (ngSubmit)="loginUser($event)">
 <mat-dialog-actions align="end">
-    <div *ngIf="IsChecked" style="color: red;">
-        Veuillez accepter les Condition Générale!
+  <form (submit)="loginUser($event)">
+    <div>
+      <div class="checkbox-btn">
+          <mat-checkbox [disabled]="!hasScrollUntilTheEnd" name="terms">Accepter</mat-checkbox>
+      </div>
+      <div class="cdt-alerte" *ngIf="!IsChecked && IsChecked !== null" style="color: red;">Veuillez accepter les Condition Générale</div>
     </div>
-    <mat-checkbox [disabled]="!hasScrollUntilTheEnd">Check me!</mat-checkbox>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Valider</button>
-</mat-dialog-actions>
-</form>
+    <div>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button cdkFocusInitial>Valider</button>
+    </div>
+  </form>
+  </mat-dialog-actions>

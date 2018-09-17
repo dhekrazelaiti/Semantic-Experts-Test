@@ -1,7 +1,7 @@
 <mat-card class="example-card">
   <mat-card-header>
     <div *ngIf="badLogin" class="alert-danger ">
-        <a href="/app-login" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+        <a (click)="badLogin=false" class="close" data-dismiss="alert" aria-label="close" title="close">x</a>
         Nom d'utililisateur et/ou mot de passe incorrecte !
     </div>
   </mat-card-header>
@@ -36,13 +36,14 @@
                     </span>
                   </mat-form-field></td>
                 </tr></table>
-
               </div>
             </mat-grid-tile>
           </mat-grid-list>
-          <button class="cnxbtn" type="submit" [disabled]="!isValidFormUsername || !isValidFormPassword  || ((isValidFormPassword && passwordValue.length <= 6) ||
-           (isValidFormPassword && passwordValue.length > 12))" mat-button mat-raised-button color="primary" >Connexion</button>
-          <!--<button type="submit" mat-raised-button color="primary">Login</button>-->
+           <div class="cnxbtn">
+              <button  type="submit" [disabled]="!isValidFormUsername || !isValidFormPassword  || ((isValidFormPassword && passwordValue.length <= 6) ||
+              (isValidFormPassword && passwordValue.length > 12))" mat-button mat-raised-button color="primary" >Connexion</button>
+              <!--<button type="submit" mat-raised-button color="primary">Login</button>-->
+           </div>
     </form>
   </mat-card-content>
 </mat-card>

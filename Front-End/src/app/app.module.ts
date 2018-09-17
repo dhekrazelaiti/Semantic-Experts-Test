@@ -10,6 +10,7 @@ import {MatButtonModule,
   MatFormFieldModule,
   MatCheckboxModule,
   MatGridListModule,
+  MatIcon,
   MatListModule } from '@angular/material';
 
 
@@ -21,9 +22,11 @@ import { UserService } from './service/user.service';
 import { DialogBodyComponent } from './dialog-body/dialog-body.component';
 
 const route: Routes = [
-  { path : 'login', component: LoginComponent },
-  { path : 'home', component: HomeComponent },
-  { path : 'popup', component: DialogBodyComponent },
+  { path : 'app-login', component: LoginComponent },
+  { path : 'app-home', component: HomeComponent },
+  { path : 'app-user', component: UserComponent },
+  { path : 'app-dialog', component: DialogBodyComponent },
+  { path : '', redirectTo: 'app-user', pathMatch : 'full'}
 ];
 
 @NgModule({
@@ -32,6 +35,7 @@ const route: Routes = [
     LoginComponent,
     HomeComponent,
     UserComponent,
+    MatIcon,
     DialogBodyComponent,
   ],
   imports: [

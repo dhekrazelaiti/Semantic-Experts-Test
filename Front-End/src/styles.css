@@ -4,6 +4,21 @@
 .example-full-width {
   width: 100%;
 }
+form {
+  width: 100%;
+}
+button.mat-button.mat-raised-button.mat-primary {
+  width: 100%;
+}
+.checkbox-btn {
+  float: left;
+}
+.cdt-alerte {
+  float: left;
+  font-size: 13px;
+  margin-top: 25px;
+  position: absolute;
+}
 .alert-danger {
   color: #a94442;
   background-color: #f2dede;
@@ -23,6 +38,12 @@
   text-shadow: 0 1px 0 #fff;
   filter: alpha(opacity=20);
   opacity: .2;
+  margin-left: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.close:hover {
+  opacity: .5;
 }
 input#mat-input-0 {
   padding-bottom: 13px;
@@ -30,8 +51,8 @@ input#mat-input-0 {
 input#mat-input-1 {
   padding-bottom: 13px;
 }
-div.container{
-  margin: 0px 40px;
+div.container {
+  margin: 2% 24%;
 }
 
 .fill-remaining-space {
@@ -40,7 +61,7 @@ div.container{
   flex: 1 1 auto;
 }
 .cnxbtn{
-  width: 70%;
+ padding: 5%;
 }
 form.normal-form{
   margin: 10px;

@@ -4,14 +4,14 @@ import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'popup',
+  selector: 'app-dialog',
   templateUrl: './dialog-body.component.html',
   styleUrls: ['./dialog-body.component.css']
 })
 export class DialogBodyComponent implements OnInit {
 
   hasScrollUntilTheEnd = false;
-  IsChecked = false;
+  IsChecked = null;
 
   constructor(public dialogRef: MatDialogRef<DialogBodyComponent>,
     private user: UserService,
@@ -32,24 +32,15 @@ export class DialogBodyComponent implements OnInit {
 }
 loginUser(e) {
   e.preventDefault();
-  console.log('=========> loginUser()');
-  this.IsChecked = e.target.checked;
-
-  console.log('=========> e.target.checked:', e.target.checked);
-
-  if (this.IsChecked = true) {
-    alert('ok');
-      this.user.setUserLoggedIn();
-      this.user.setUsername('admin');
-      this.router.navigate(['home']);
-    } else {
-      alert('Vous devez accepter les conditions générales');
-    }
-
-    e.preventDefault();
-
+  this.IsChecked = e.target.terms.checked;
+  console.log('=========> this.IsChecked:', this.IsChecked);
+  if (this.IsChecked === true) {
+    this.user.setUserLoggedIn();
+    this.user.setUsername('admin');
+    this.router.navigate(['app-home']);
+    this.close();
   }
-
+}
   btnSubmitClick(e) {
     e.preventDefault();
   }
