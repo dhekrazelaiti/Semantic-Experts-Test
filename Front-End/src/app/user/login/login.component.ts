@@ -1,13 +1,15 @@
 
 import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from './service/user.service';
+import { UserService } from '../../service/user.service';
 import { MatDialog, MatDialogConfig} from '@angular/material';
-import { DialogBodyComponent } from './dialog-body/dialog-body.component';
+import { DialogBodyComponent } from '../../dialog-body/dialog-body.component';
+
 @Component({
+
   // tslint:disable-next-line:component-selector
-  selector: 'login',
-  templateUrl: './login.component.html'
+  selector: 'app-login',
+  templateUrl: './login.component.html',
 })
 export class LoginComponent {
 

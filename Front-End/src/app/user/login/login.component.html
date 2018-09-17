@@ -1,0 +1,52 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div *ngIf="badLogin" class="alert-danger ">
+        <a href="/app-login" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+        Nom d'utililisateur et/ou mot de passe incorrecte !
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <form  (submit) = "loginUser($event)" class="example-form">
+        <mat-grid-list cols="1" rowHeight="300px">
+            <mat-grid-tile>
+              <div class="controles-container">
+                    <!-- <form  (ngSubmit)="sayHello()" class="example-form"> -->
+              <table class="example-full-width" cellspacing="0">
+                  <tr>
+                    <td>
+                      <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Username" name="username" required (keyup) ="checkFormValidation($event)" class="inputuser">
+                      <span class="form-element-error" *ngIf="!isValidFormUsername" style="color: red;font-size: 11px;">
+                        Veuiller remplir le champ Username
+                      </span>
+                      </mat-form-field>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td><mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" type="password" name="password"  required (keyup) ="checkFormValidation($event)">
+                    <span class="form-element-error" *ngIf="!isValidFormPassword" style="color: red;font-size: 11px;">
+                      Veuiller remplir le champ Password
+                    </span>
+                    <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length >0 && passwordValue.length <= 6" style="color: red;font-size: 11px;">
+                      Le mot de passe doit contenir au moin 6 characteres
+                    </span>
+                    <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length >0 && passwordValue.length > 12" style="color: red;font-size: 11px;">
+                      Le mot de passe ne doit pas depasse les 12 characteres
+                    </span>
+                  </mat-form-field></td>
+                </tr></table>
+
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <button class="cnxbtn" type="submit" [disabled]="!isValidFormUsername || !isValidFormPassword  || ((isValidFormPassword && passwordValue.length <= 6) ||
+           (isValidFormPassword && passwordValue.length > 12))" mat-button mat-raised-button color="primary" >Connexion</button>
+          <!--<button type="submit" mat-raised-button color="primary">Login</button>-->
+    </form>
+  </mat-card-content>
+</mat-card>
+
+
+
+

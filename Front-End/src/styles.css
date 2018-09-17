@@ -1,10 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
-}
+
 .example-full-width {
   width: 100%;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: serif;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+input#mat-input-0 {
+  padding-bottom: 13px;
+}
+input#mat-input-1 {
+  padding-bottom: 13px;
+}
+div.container{
+  margin: 0px 40px;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+.cnxbtn{
+  width: 70%;
+}
+form.normal-form{
+  margin: 10px;
+}
+
+.controles-container{
+  width: 100%;
+  padding: 5%;
+}
+
+.controles-container > * {
+  width: 100%;
+  }
+
+  .add-bottom-padding{
+    padding-bottom: 10px;
+  }
+  /* radio group */
+mat-radio-group mat-radio-button{
+  margin-left: 5px;
+}
+
+.button-row button{
+  margin: 5px;
 }
