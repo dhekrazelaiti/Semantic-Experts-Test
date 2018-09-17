@@ -24,10 +24,10 @@
           <span class="form-element-error" *ngIf="!isValidFormPassword" style="color: red">
             Veuiller remplir le champ Password
           </span>
-          <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length <= 6" style="color: red">
+          <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length >0 && passwordValue.length <= 6" style="color: red">
             Le mot de passe doit contenir au moin 6 characteres
           </span>
-          <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length > 12" style="color: red">
+          <span class="form-element-error" *ngIf="isValidFormPassword && passwordValue.length >0 && passwordValue.length > 12" style="color: red">
             Le mot de passe ne doit pas depasse les 12 characteres
           </span>
         </mat-form-field></td>

@@ -4,10 +4,6 @@ import { Router } from '@angular/router';
 import { UserService } from './service/user.service';
 import { MatDialog, MatDialogConfig} from '@angular/material';
 import { DialogBodyComponent } from './dialog-body/dialog-body.component';
-
-
-
-
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'login',
@@ -15,8 +11,8 @@ import { DialogBodyComponent } from './dialog-body/dialog-body.component';
 })
 export class LoginComponent {
 
-   isValidFormUsername = false;
-   isValidFormPassword = false;
+   isValidFormUsername = true;
+   isValidFormPassword = true;
    usernameValue = '';
    passwordValue = '';
    badLogin = false;

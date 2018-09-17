@@ -8,6 +8,7 @@ import {MatButtonModule,
   MatToolbarModule,
   MatInputModule,
   MatFormFieldModule,
+  MatCheckboxModule,
   MatListModule } from '@angular/material';
 
 
@@ -42,6 +43,7 @@ const route: Routes = [
     MatFormFieldModule,
     MatListModule,
     MatDialogModule,
+    MatCheckboxModule,
     RouterModule.forRoot(route)
   ],
   providers: [UserService],
